@@ -2,7 +2,6 @@ package com.java.test.javatest.request;
 
 import com.java.test.javatest.user.Address;
 import com.java.test.javatest.user.DateOfBirth;
-import com.java.test.javatest.user.Gender;
 import lombok.AllArgsConstructor;
 import lombok.EqualsAndHashCode;
 import lombok.Getter;

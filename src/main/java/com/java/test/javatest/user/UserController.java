@@ -5,6 +5,7 @@ import lombok.AllArgsConstructor;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
+import java.util.Optional;
 
 /**
  * UserController class - Defining methods, queries and api paths
@@ -34,5 +35,16 @@ public class UserController {
     @PostMapping("/register")
     public String register(@RequestBody RegistrationRequest request) {
         return userService.register(request);
+    }
+
+    /**
+     * Get one user by email method - api/v1/user path (request param required)
+     *
+     * @param email user's email request
+     * @return user details
+     */
+    @GetMapping("/user")
+    public Optional<User> getUserByEmail(@RequestParam("email") String email) {
+        return userService.getUserByEmail(email);
     }
 }

@@ -10,7 +10,7 @@ import java.time.LocalDate;
 import java.time.LocalDateTime;
 import java.time.Period;
 import java.util.List;
-import java.util.concurrent.atomic.AtomicReference;
+import java.util.Optional;
 
 /**
  * UserService class - Defining methods of request data processing
@@ -89,6 +89,21 @@ public class UserService {
             return Period.between(LocalDate.of(dateOfBirth.getYear(), dateOfBirth.getMonth(), dateOfBirth.getDay()), today).getYears();
         } else {
             return 0;
+        }
+    }
+
+    /**
+     * Get one user by email method
+     *
+     * @param email user's email request
+     * @return user details
+     */
+    public Optional<User> getUserByEmail(String email) {
+        // checking if user exists
+        if (userRepository.existsByEmail(email)) {
+            return userRepository.findUserByEmail(email);
+        } else {
+            throw new ResponseStatusException(HttpStatus.NOT_FOUND, "L'utilisateur avec l'email (" + email + ") n'existe pas!");
         }
     }
 }
