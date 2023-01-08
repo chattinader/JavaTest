@@ -2,6 +2,7 @@ package com.java.test.javatest.user;
 
 import lombok.Data;
 import org.springframework.data.annotation.Id;
+import org.springframework.data.mongodb.core.index.Indexed;
 import org.springframework.data.mongodb.core.mapping.Document;
 
 import java.time.LocalDateTime;
@@ -17,6 +18,7 @@ public class User {
     private String firstName;
     private String lastName;
     private DateOfBirth dateOfBirth;
+    @Indexed(unique = true)
     private String email;
     private Gender gender;
     private Address address;
