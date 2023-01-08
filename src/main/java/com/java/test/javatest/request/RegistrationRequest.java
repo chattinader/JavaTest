@@ -20,6 +20,6 @@ public class RegistrationRequest {
     private final String lastName;
     private final DateOfBirth dateOfBirth;
     private final String email;
-    private final Gender gender;
+    private final String gender;
     private final Address address;
 }

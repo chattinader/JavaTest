@@ -23,14 +23,14 @@ public class UserService {
     /**
      * Get the list of all users method
      *
-     * @return List of users
+     * @return list of users
      */
     public List<User> getAllUsers() {
         return userRepository.findAll();
     }
 
     /**
-     * register user method
+     * Register user method
      *
      * @param request user data request
      * @return String response or exception in case of error
@@ -50,13 +50,25 @@ public class UserService {
                 throw new ResponseStatusException(HttpStatus.BAD_REQUEST, "Seul les utilisateurs agés de 18 and ou plus peuvent être enregistrés!");
             }
 
+            // checking gender input
+            Gender gender = null;
+            if (!request.getGender().toUpperCase().equals("MALE") && !request.getGender().toUpperCase().equals("FEMALE")) {
+                throw new ResponseStatusException(HttpStatus.BAD_REQUEST, "Le genre doit être l'un des deux valeures suivantes (MALE, FEMALE)!");
+            } else {
+                if (request.getGender().toUpperCase().equals("MALE")) {
+                    gender = Gender.MALE;
+                } else if (request.getGender().toUpperCase().equals("FEMALE")) {
+                    gender = Gender.FEMALE;
+                }
+            }
+
             // Saving user to data base
             userRepository.insert(new User(
                     request.getFirstName(),
                     request.getLastName(),
                     request.getDateOfBirth(),
                     request.getEmail(),
-                    request.getGender(),
+                    gender,
                     request.getAddress(),
                     LocalDateTime.now()
             ));
