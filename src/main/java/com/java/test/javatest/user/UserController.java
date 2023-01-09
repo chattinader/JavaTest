@@ -11,6 +11,7 @@ import java.util.Optional;
  * UserController class - Defining methods, queries and api paths
  */
 @RestController
+@CrossOrigin(maxAge = 3600)
 @RequestMapping("api/v1")
 @AllArgsConstructor
 public class UserController {

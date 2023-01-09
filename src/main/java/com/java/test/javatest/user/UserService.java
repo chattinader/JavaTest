@@ -36,6 +36,7 @@ public class UserService {
      * @return String response or exception in case of error
      */
     public String register(RegistrationRequest request) {
+        System.out.println(request);
         // checking if user exists by email
         userRepository.findUserByEmail(request.getEmail()).ifPresentOrElse(u -> {
             throw new ResponseStatusException(HttpStatus.IM_USED, "Email déjà pris!");

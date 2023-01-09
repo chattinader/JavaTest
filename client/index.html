@@ -1,0 +1,63 @@
+<!doctype html>
+<html lang="fr">
+<head>
+    <meta charset="utf-8">
+    <title>Java test - Nader CHATTI</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body onload="httpGet()">
+<h1>Java test - API REST services - Nader CHATTI</h1>
+<div class="wrapper">
+    <div class="table-container">
+        <table id="users-table" class="styled-table">
+            <thead>
+            <tr>
+                <td>ID</td>
+                <td>Nom</td>
+                <td>Prénom</td>
+                <td>Date de naissance</td>
+                <td>Email</td>
+                <td>Genre</td>
+                <td>Adresse</td>
+                <td>Créé le</td>
+            </tr>
+            </thead>
+            <tbody>
+            </tbody>
+        </table>
+    </div>
+    <div class="col2">
+        <div class="search-container">
+            <h4>Chercher un utilisateur par email</h4>
+            <form id="get-user">
+                <input id="search-bar" name="email" class="search" placeholder="email" type="text" required>
+                <button type="submit">Envoyer</button>
+                <button type="reset">Effacer</button>
+            </form>
+            <div id="result"></div>
+        </div>
+        <div class="register-container">
+            <h4>Ajouter un utilisateur</h4>
+            <form id="register-user">
+                <input type="text" name="firstName" placeholder="Nom"><br/>
+                <input type="text" name="lastName" placeholder="Prénom"><br/>
+                <input type="text" name="gender" placeholder="Genre (MALE/FEMALE)"><br/>
+                <input type="text" name="day" placeholder="Jour de naissance (01)"><br/>
+                <input type="text" name="month" placeholder="Mois de naissance (05)"><br/>
+                <input type="text" name="year" placeholder="Année de naissance (1980)"><br/>
+                <input type="text" name="email" placeholder="Email"><br/>
+                <input type="text" name="number" placeholder="Numéro"><br/>
+                <input type="text" name="street" placeholder="Rue"><br/>
+                <input type="text" name="zipCode" placeholder="Code postal"><br/>
+                <input type="text" name="city" placeholder="Ville"><br/>
+                <input type="text" name="country" placeholder="Pays"><br/>
+                <button type="submit">Envoyer</button>
+            </form>
+            <div id="response"></div>
+        </div>
+    </div>
+</div>
+
+<script src="script.js"></script>
+</body>
+</html>
